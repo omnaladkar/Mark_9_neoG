@@ -11,7 +11,7 @@ onClick.addEventListener("click", function validateBillAndCashAmount() {
   if (billAmount.value > 0) {
     if (paidByCustomer.value >= billAmount.value) {
       const toReturn = paidByCustomer.value - billAmount.value; 
-      ramainChange(toReturn);
+      remainChange(toReturn);
     } else {
       showMessage("Table no 88 ke plate utha le");
     }

@@ -10,7 +10,7 @@ onClick.addEventListener("click", function validateBillAndCashAmount() {
   hideMessage();
   if (billAmount.value > 0) {
     if (paidByCustomer.value >= billAmount.value) {
-      const toReturn = paidByCustomer.value - billAmount.value; // 2022 - 12 = 2010
+      const toReturn = paidByCustomer.value - billAmount.value; 
       ramainChange(toReturn);
     } else {
       showMessage("Table no 88 ke plate utha le");
@@ -20,7 +20,7 @@ onClick.addEventListener("click", function validateBillAndCashAmount() {
   }
 });
 
-function ramainChange(amountToBeReturned) {
+function remainChange(amountToBeReturned) {
  
   for (let i = 0; i < availableNotes.length; i++) {
     const numberOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);

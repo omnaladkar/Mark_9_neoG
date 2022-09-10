@@ -1,82 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <main class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash Register</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cash Register</h1>
+
+      <p>
+        Enter the bill amount and cash given by the customer and know minimum
+        number of notes to return.
+      </p>
+
+      <div class="input-controller">
         <div>
-          <h1 class="heading">Billing</h1>
-          <p class="description">
-            amount customer paid to you
-          </p>
-          <label class="input-label" for="bill-amount">Bill Amount:</label>
-          <input class="input" id="bill-amount" type="text" />
-      
-          <label class="input-label" for="cash-given">Cash Given:</label>
-          <input class="input" id="cash-given" type="text" />
-          <button id="check-button">Check</button>
-          <p id="error-message"></p>
-          <table class="change-table">
-            <caption>
-              Return Change
-            </caption>
-            <tr>
-              <th>No of Notes</th>
-              <td class="no-of-notes"></td>
-              <td class="no-of-notes"></td>
-              <td class="no-of-notes"></td>
-              <td class="no-of-notes"></td>
-              <td class="no-of-notes"></td>
-              <td class="no-of-notes"></td>
-              <td class="no-of-notes"></td>
-            </tr>
-            <tr>
-              <th>Note</th>
-              <td>2000</td>
-              <td>500</td>
-              <td>100</td>
-              <td>20</td>
-              <td>10</td>
-              <td>5</td>
-              <td>1</td>
-            </tr>
-          </table>
+          <label class="input-label" for="bill-amount"
+            >Bill Amount:<input id="bill-amount" type="text" />
+          </label>
         </div>
-      </main>
-      <footer>
-       <h3> Made up with 💙</h3>
-        <ul class="footer-list">
-          <li>
-            <a class="links" href="https://github.com/omnaladkar/" target="_blank">
-              <img src="images/github.svg" alt="github" />
-            </a>
-          </li>
-          <li>
-            <a class="links" href="https://bit.ly/" target="_blank">
-              <img src="images/discord.svg" alt="discord" />
-            </a>
-          </li>
-          <li>
-            <a class="links" href="https://twitter.com/om_naladkar" target="_blank">
-              <img src="images/twitter.svg" alt="twitter" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="links"
-              href="https://www.instagram.com/i_mm_or_tal/"
-              target="_blank"
-            >
-              <img src="images/instagram.svg" alt="instagram" />
-            </a>
-          </li>
-        </ul>
-      </footer>
-      <script src="app.js" type="text/javascript"></script>
-    </body>
-    </html>
+
+        <div>
+          <label class="input-label" for="cash-given"
+            >Cash Given:<input id="cash-given" type="text" />
+          </label>
+        </div>
+        <button id="check-button">Check</button>
+      </div>
+
+      <p id="error-message"></p>
+
+      <div class="result-container">
+        <div class="result-table-heading">
+          <div>Count</div>
+          <div>Denomination</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-2000">0</div>
+          <div>2000</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-500">0</div>
+          <div>500</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-100">0</div>
+          <div>100</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-50">0</div>
+          <div>50</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-20">0</div>
+          <div>20</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-10">0</div>
+          <div>10</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-5">0</div>
+          <div>5</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-2">0</div>
+          <div>2</div>
+        </div>
+
+        <div class="currency-column">
+          <div id="currency-value-1">0</div>
+          <div>1</div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

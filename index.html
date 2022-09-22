@@ -1,91 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cash Register</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cash register Manager</title>
+</head>
+<body>
     <div class="container">
-      <h1>Cash Register</h1>
-
-      <p>
-        Enter the bill amount and cash given by the customer and know minimum
-        number of notes to return.
-      </p>
-
-      <div class="input-controller">
-        <div>
-          <label class="input-label" for="bill-amount"
-            >Bill Amount:<input id="bill-amount" type="text" />
-          </label>
+        <div class="heading">
+            <h1>Change calci</h1>
+        </div>
+        <p>Enter the bill amount and cash given by the customer and know minimum number of notes to return</p>
+        
+        <div >
+            <label for="bill-amt"></label>
+            <input id="bill-amt" type="number" placeholder="Bill Amount:">
+            <button id="next-btn">Next</button>
         </div>
 
-        <div>
-          <label class="input-label" for="cash-given"
-            >Cash Given:<input id="cash-given" type="text" />
-          </label>
-        </div>
-        <button id="check-button">Check</button>
-      </div>
-
-      <p id="error-message"></p>
-
-      <div class="result-container">
-        <div class="result-table-heading">
-          <div>Count</div>
-          <div>Denomination</div>
+        <div class="cashgiven-section">
+            <label for="cash-given"></label>
+            <input id="cash-given" type="number" placeholder="Cash Given">
+            <button id="check-btn">Check</button>
         </div>
 
-        <div class="currency-column">
-          <div id="currency-value-2000">0</div>
-          <div>2000</div>
-        </div>
+        <p id="error-msg"></p>
 
-        <div class="currency-column">
-          <div id="currency-value-500">0</div>
-          <div>500</div>
-        </div>
-
-        <div class="currency-column">
-          <div id="currency-value-100">0</div>
-          <div>100</div>
-        </div>
-
-        <div class="currency-column">
-          <div id="currency-value-50">0</div>
-          <div>50</div>
-        </div>
-
-        <div class="currency-column">
-          <div id="currency-value-20">0</div>
-          <div>20</div>
-        </div>
-
-        <div class="currency-column">
-          <div id="currency-value-10">0</div>
-          <div>10</div>
-        </div>
-
-        <div class="currency-column">
-          <div id="currency-value-5">0</div>
-          <div>5</div>
-        </div>
-
-        <div class="currency-column">
-          <div id="currency-value-2">0</div>
-          <div>2</div>
-        </div>
-
-        <div class="currency-column">
-          <div id="currency-value-1">0</div>
-          <div>1</div>
-        </div>
-
+        <div id= "output">
+            <table class="table">
+                <tr>
+                    <th>Note Amount</th>
+                    <th>No of notes</th>
+                </tr>
+                
+                <tr class="active-row">
+                    <td class="notes">2000</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">500</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">200</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">100</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">50</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">20</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">10</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">5</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+                <tr>
+                    <td class="notes">1</td>
+                    <td class="no-of-notes">0</td>
+                </tr>
+            </table>
+         </div>
     </div>
-
     <script src="app.js"></script>
-  </body>
+</body>
 </html>

@@ -1,53 +1,64 @@
-const checkButton = document.getElementById("check-button");
-const message = document.getElementById("error-message");
+const inputBillAmount = document.querySelector("#bill-amt");
+const inputCashGiven = document.querySelector("#cash-given");
 
-const availableNotes = [2000, 500, 100, 50, 20, 10, 5, 2, 1];
+const checkButton = document.querySelector("#check-btn");
+const nextButton = document.querySelector("#next-btn");
 
-function checkBillAndCashGivenAmount() {
-  const billAmount = document.getElementById("bill-amount");
-  const cashGiven = document.getElementById("cash-given");
+const cashGivenSection = document.querySelector(".cashgiven-section");
 
-  if (billAmount.value > 0) {
-    console.log("cash: " + cashGiven.value);
-    console.log("bill: " + billAmount.value);
-    if (cashGiven.value >= billAmount.value) {
-      const amountToBeReturned = cashGiven.value - billAmount.value;
-      calculateChange(amountToBeReturned);
-    } else {
-      showMessage("Cash Given Should Be Greater Than Bill Amount");
+const message = document.querySelector("#error-msg");
+
+const outputDiv = document.querySelector("#output");
+const table = document.querySelector(".table");
+
+const noOfNotes = document.querySelectorAll(".no-of-notes");
+const availableNotes = [2000,500,200,100,50,20,10,5,1];
+ 
+inputBillAmount.addEventListener("click", function reset(){
+    nextButton.style.display = "block";
+    outputDiv.style.display= "none";
+    cashGivenSection.style.display = "none";
+})
+
+nextButton.addEventListener("click", function nextStep(){
+    inputCashGiven.value = "";
+    var billAmount = Number(inputBillAmount.value);
+    if(billAmount > 0){
+        nextButton.style.display = "none";
+        cashGivenSection.style.display = "block";
     }
-  } else {
-    showMessage("Please Enter A Valid Input");
-  }
+    else{
+        showMessage("Enter valid bill amount");
+    }
+});
+
+checkButton.addEventListener("click", function validateCashHandler(){
+    
+    var billAmount = Number(inputBillAmount.value);
+	var cashGiven = Number(inputCashGiven.value);
+
+   if (billAmount > cashGiven) {
+		showMessage("Insufficient Cash");
+	} else if (billAmount == cashGiven) {
+		showMessage("No cash to return");
+	} else {
+		returnCash(billAmount, cashGiven);
+	}
+    
+});
+
+function showMessage(text) {
+    message.style.display = "block";
+	message.innerText = text;	
 }
 
-checkButton.addEventListener("click", checkBillAndCashGivenAmount);
-
-function calculateChange() {
-
-
-  const billAmount = document.getElementById("bill-amount");
-  const cashGiven = document.getElementById("cash-given");
-
-  let balanceAmount = cashGiven.value - billAmount.value;
-
-  availableNotes.forEach((note) => {
-    const count = Math.trunc(balanceAmount / note);
-    const elementID = "currency-value-" + note;
-    const element = document.getElementById(elementID);
-
-    if (count > 0) element.innerText = count;
-    else element.innerText = "-";
-
-    balanceAmount = balanceAmount - count * note;
-  });
-}
-
-function showMessage(msg) {
-  message.style.display = "block";
-  message.innerText = msg;
-
-  setTimeout(() => {
-    message.style.display = "none";
-  }, 3000);
+function returnCash(bill,cash){
+    var  returnChange = cash - bill;
+    outputDiv.style.display= "block";
+    for(var i = 0; i < availableNotes.length; i++)
+    {
+        var numberOfNotes = Math.trunc(returnChange / availableNotes[i]);
+        returnChange =returnChange % availableNotes[i];
+        noOfNotes[i].innerText = numberOfNotes;
+    }
 }
